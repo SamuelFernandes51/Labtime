@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Criar Conta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonte moderna para o tema -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylecad.css">
+    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">
+
 </head>
 <body>
 
+<div class="auth-card">
     <h1>Criar Conta</h1>
 
-    <input id="nome" type="text" placeholder="Nome"><br><br>
-    <input id="email" type="email" placeholder="Email"><br><br>
-    <input id="senha" type="password" placeholder="Senha"><br><br>
+    <!-- Removi as tags <br><br> e usei CSS/divs para espaçamento -->
+    <input id="nome" type="text" placeholder="Nome">
+    <input id="email" type="email" placeholder="Email">
+    <input id="senha" type="password" placeholder="Senha">
 
-    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="cadastrar()" class="btn-primary">Cadastrar</button>
 
-    <br><br>
-    <a href="login.html">Já tem conta? Entrar</a>
-    <a href="index.html">Voltar a página inicial</a>
+    <div class="nav-links">
+        <!-- Mantido o HTML original para os links -->
+        <a href="login.html">Já tem conta? Entrar</a>
+        <a href="index.html">Voltar a página inicial</a>
+    </div>
+</div>
 
-    <script src="js/auth.js"></script>
+<!-- O script externo é mantido no local original -->
+<script src="js/auth.js"></script>
 
 </body>
 </html>
-

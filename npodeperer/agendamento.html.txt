@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Espaço</title>
+</head>
+<body>
+    <h1>Agendar Espaço</h1>
+
+    <label>Data:</label>
+    <input id="data" type="date"><br><br>
+
+    <label>Horário (Aula 1 a 9):</label>
+    <select id="aula">
+        <option value="">Selecione</option>
+        <option value="1">Aula 1</option>
+        <option value="2">Aula 2</option>
+        <option value="3">Aula 3</option>
+        <option value="4">Aula 4</option>
+        <option value="5">Aula 5</option>
+        <option value="6">Aula 6</option>
+        <option value="7">Aula 7</option>
+        <option value="8">Aula 8</option>
+        <option value="9">Aula 9</option>
+    </select>
+    <br><br>
+
+    <label>Espaço:</label>
+    <select id="espaco"></select>
+    <br><br>
+
+    <button onclick="agendar()">Agendar</button>
+
+    <script src="js/agendamento.js"></script>
+
+    <button onclick="logout()" style="position:absolute; top:20px; right:20px;">
+    Sair
+    </button>
+
+
+</body>
+</html>
+

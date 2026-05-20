@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Início</title>
+</head>
+<body>
+
+<h1>Sistema de Agendamento</h1>
+
+<div id="acoes"></div>
+
+<script>
+    function atualizarBotoes() {
+        const token = localStorage.getItem("token");
+        const div = document.getElementById("acoes");
+
+        if (!token) {
+            // Usuário NÃO está logado
+            div.innerHTML = `
+                <button onclick="window.location.href='login.html'">Entrar</button>
+                <button onclick="window.location.href='cadastro.html'">Cadastrar</button>
+            `;
+        } else {
+            // Usuário ESTÁ logado
+            div.innerHTML = `
+                <button onclick="window.location.href='agendamento.html'">Agendamento</button>
+                <button onclick="logout()">Sair</button>
+            `;
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem("token");
+        window.location.href = "login.html";
+    }
+
+    atualizarBotoes();
+</script>
+
+
+
+
+</body>
+</html>

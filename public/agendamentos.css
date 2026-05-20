@@ -1,0 +1,157 @@
+/* ------------------------------------- */
+/* --- 1. VARIÁVEIS DE COR (TEMA VERDE) --- */
+/* ------------------------------------- */
+:root {
+    --color-primary: #00801e; /* Novo Verde Principal (mais escuro e forte) */
+    --color-secondary: #00cb2c; /* Verde de Destaque/Hover */
+    --color-dark: #2c3e50; /* Azul escuro/quase preto para títulos e textos */
+    --color-background: #f4f6f9; /* Fundo muito claro, quase branco, para suavidade */
+    --color-table-header: var(--color-dark); /* Cabeçalho da Tabela - Azul Escuro */
+    --color-table-alt: #ffffff; /* Linhas alternadas (branco puro) */
+    --color-danger: #e74c3c; /* Vermelho vibrante para Excluir */
+    --color-text-body: #34495e; /* Cor padrão para o corpo do texto */
+}
+
+/* --- 2. ESTILOS GERAIS --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--color-text-body);
+}
+
+h1 {
+    color: var(--color-dark);
+    margin-bottom: 30px;
+    font-weight: 800; 
+    font-size: 2.5rem;
+    text-align: center;
+    /* Usando verde secundário para o sublinhado */
+    border-bottom: 3px solid var(--color-secondary); 
+    padding-bottom: 10px;
+}
+
+/* Container que gerencia a rolagem horizontal no mobile */
+.table-container {
+    width: 100%;
+    max-width: 1100px; 
+    overflow-x: auto; /* Permite rolagem horizontal se o conteúdo for muito largo */
+    padding-bottom: 10px; /* Espaço para a barra de rolagem aparecer */
+}
+
+/* --- 3. ESTILO DA TABELA (DESKTOP E MOBILE COM SCROLL) --- */
+table {
+    /* *** CHAVE DA SOLUÇÃO: Força a largura mínima para ativar o scroll no container *** */
+    min-width: 750px; 
+    width: 100%;
+    
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background-color: var(--color-table-alt);
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.15); 
+    border-radius: 12px; 
+    overflow: hidden; 
+}
+
+th, td {
+    padding: 18px 15px; 
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1; 
+    color: var(--color-text-body);
+    /* Garante que o texto não quebre em várias linhas (ajuda no scroll) */
+    white-space: nowrap; 
+}
+
+th {
+    background-color: var(--color-table-header);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    /* Aplicando o gradiente com as cores primárias */
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-dark));
+}
+
+th:first-child { border-top-left-radius: 12px; }
+th:last-child { border-top-right-radius: 12px; }
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+tbody tr:hover {
+    background-color: #e6f6ec; /* Verde muito claro */
+    /* Linha lateral de destaque com a cor secundária */
+    box-shadow: inset 5px 0 0 0 var(--color-secondary); 
+    cursor: pointer;
+}
+
+td:nth-child(1), td:nth-child(4), td:nth-child(5) {
+    text-align: center; /* Centraliza ID, Data e Aula */
+}
+
+/* --- 4. ESTILO PARA BOTÕES E AÇÕES --- */
+button {
+    padding: 10px 18px;
+    background-color: var(--color-danger); /* Mantendo o vermelho para exclusão */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);
+}
+
+button:hover {
+    background-color: #c0392b; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(231, 76, 60, 0.3);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 30px;
+    background-color: var(--color-primary); /* Verde primário */
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 128, 30, 0.2);
+}
+
+.btn-voltar:hover {
+    background-color: var(--color-secondary); /* Verde secundário no hover */
+    transform: translateY(-1px);
+}
+
+/* ------------------------------------- */
+/* --- 5. ESTILOS DE RESPONSIVIDADE (Apenas ajustes visuais, sem empilhamento) --- */
+/* ------------------------------------- */
+
+@media screen and (max-width: 768px) {
+    
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    /* Garante que o botão voltar ocupe a largura toda no mobile */
+    .btn-voltar {
+        width: 100%;
+        text-align: center;
+    }
+}

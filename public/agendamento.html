@@ -3,41 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Agendar Espaço</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonte moderna para o tema -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="agendamento.css">
+    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">k
+    
 </head>
 <body>
+
+<div class="form-card">
     <h1>Agendar Espaço</h1>
 
-    <label>Data:</label>
-    <input id="data" type="date"><br><br>
+    <!-- Removi as tags <br><br> e usei divs/CSS para melhor espaçamento -->
+    <div class="form-group">
+        <label for="data">Data:</label>
+        <input id="data" type="date">
+    </div>
 
-    <label>Horário (Aula 1 a 9):</label>
-    <select id="aula">
-        <option value="">Selecione</option>
-        <option value="1">Aula 1</option>
-        <option value="2">Aula 2</option>
-        <option value="3">Aula 3</option>
-        <option value="4">Aula 4</option>
-        <option value="5">Aula 5</option>
-        <option value="6">Aula 6</option>
-        <option value="7">Aula 7</option>
-        <option value="8">Aula 8</option>
-        <option value="9">Aula 9</option>
-    </select>
-    <br><br>
+    <div class="form-group">
+        <label for="aula">Horário (Aula 1 a 9):</label>
+        <select id="aula">
+            <option value="">Selecione</option>
+            <option value="1">Aula 1</option>
+            <option value="2">Aula 2</option>
+            <option value="3">Aula 3</option>
+            <option value="4">Aula 4</option>
+            <option value="5">Aula 5</option>
+            <option value="6">Aula 6</option>
+            <option value="7">Aula 7</option>
+            <option value="8">Aula 8</option>
+            <option value="9">Aula 9</option>
+        </select>
+    </div>
 
-    <label>Espaço:</label>
-    <select id="espaco"></select>
-    <br><br>
+    <div class="form-group">
+        <label for="espaco">Espaço:</label>
+        <select id="espaco">
+            <!-- Opção de carregamento, será populada pelo js/agendamento.js -->
+            <option value="">Carregando...</option> 
+        </select>
+    </div>
 
-    <button onclick="agendar()">Agendar</button>
+    <button onclick="agendar()" class="btn-primary">Agendar</button>
+</div>
 
-    <script src="js/agendamento.js"></script>
+<!-- O script externo é mantido aqui, sem alterações na referência -->
+<script src="js/agendamento.js"></script>
 
-    <button onclick="logout()" style="position:absolute; top:20px; right:20px;">
-    Sair
-    </button>
-
+<button onclick="logout()" class="btn-logout">
+Sair
+</button>
 
 </body>
 </html>
-

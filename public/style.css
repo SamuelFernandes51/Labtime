@@ -1,0 +1,232 @@
+            :root {
+            --color-primary: #00cb2c; /* verde forte */
+            --color-accent: #28a745; /* Verde para destaque (Cadastro) */
+            --color-dark: #343a40;
+            --color-light: #f8f9fa; /* Fundo mais claro */
+            --color-text: #212529;
+            --color-login-bg: #00801e;
+        }
+
+        a {
+            color: inherit; /* Mantém a cor do texto pai se não for definida */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            transition: color 0.3s ease;
+        }
+
+        body {
+            /* MANTÉM A CORREÇÃO para remover a barra de rolagem horizontal */
+            overflow-x: hidden;
+            
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            color: var(--color-text);
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            width: 100%;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        /* Links no Header (Botões) */
+        .header-links {
+            display: flex;
+            gap: 10px; 
+            align-items: center;
+        }
+        
+        .header-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            line-height: 1; 
+        }
+
+        .header-links a.btn-login {
+            background-color: var(--color-login-bg);
+            color: white;
+        }
+
+        .header-links a.btn-login:hover {
+            background-color: #006418;
+            transform: translateY(-1px);
+        }
+
+        .header-links a:not(.btn-login) {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .header-links a:not(.btn-login):hover {
+            background-color: white;
+            color: var(--color-primary);
+            transform: translateY(-1px);
+        }
+
+
+        /* O conteúdo principal - Centralizado (Container Flex) */
+        main {
+            flex-grow: 1; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Container que usa Flexbox para colocar Imagem e Texto lado a lado e alinhar verticalmente */
+        .hero-content {
+            max-width: 1000px; 
+            width: 100%;
+            display: flex;
+            align-items: center; /* Centraliza verticalmente o conteúdo (IMAGEM + TEXTO) */
+            gap: 40px; 
+            padding: 40px;
+        }
+
+        /* Classe que garante que a imagem fique à esquerda dentro do seu container */
+        .imglab {
+            display: flex;
+            justify-content: flex-start; /* Alinha o conteúdo (imagem) à esquerda */
+        }
+        
+        /* Área da Imagem (25% da largura) */
+        .hero-image-area {
+            flex: 0 0 25%; /* Não cresce, não encolhe, largura base de 25% */
+            text-align: left; /* Alinha o conteúdo da área da imagem à esquerda */
+        }
+
+        .hero-image-area img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px; 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Área do Texto (75% da largura) */
+        .hero-text-area {
+            flex: 1; /* Ocupa o restante do espaço */
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+        
+        .hero-text-area h2 {
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text-area p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Área de Ações e Botões */
+        #acoes {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: flex-start; /* Alinha os botões à esquerda */
+            gap: 15px;
+            margin-top: 20px; 
+        }
+        
+        /* Estilo dos botões */
+        #acoes button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        #acoes button:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-logout {
+            background-color: #dc3545 !important; 
+        }
+        .btn-logout:hover {
+            background-color: #c82333 !important;
+        }
+        
+        /* Media Query para responsividade em telas menores */
+        @media (max-width: 850px) {
+            /* Em telas menores, o layout se torna coluna (Imagem em cima, Texto embaixo) */
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-image-area {
+                 flex: auto;
+                 width: 50%; /* Faz a imagem ocupar 50% da largura em mobile */
+                 text-align: center; /* Volta a centralizar a imagem no mobile */
+            }
+            
+            /* Garante que a imagem seja centralizada em telas pequenas */
+            .imglab {
+                justify-content: center;
+            }
+
+            .hero-text-area {
+                text-align: center; /* Volta a centralizar o texto no modo mobile */
+            }
+
+            .hero-text-area h2 {
+                font-size: 2rem;
+            }
+            .hero-text-area p {
+                font-size: 1rem;
+            }
+            
+            /* Alinha botões ao centro no modo mobile */
+            #acoes {
+                justify-content: center;
+                flex-direction: column;
+            }
+            #acoes button {
+                width: 100%;
+            }
+        }
+
+    h1{
+        border-left: 50px;
+    }

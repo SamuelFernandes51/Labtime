@@ -1,0 +1,133 @@
+    /* Variáveis de Cores (Tema Verde LabTime) */
+        :root {
+            --color-primary: #38a169; /* Verde Principal */
+            --color-secondary: #4a5568; /* Cinza escuro para texto */
+            --color-background-overlay: rgba(248, 249, 250, 0.7); /* Overlay para o fundo */
+            --color-card-bg: rgba(255, 255, 255, 0.95); /* Fundo do card semi-transparente */
+            --color-danger: #e53e3e; /* Vermelho para destaque */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #212529;
+            
+            /* Fundo com a Imagem e Efeito Desfoque */
+            background-image: url(imgs/fundo.jpg);  /* Nome do arquivo da imagem */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
+            
+            /* Aplicando o desfoque ao body */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px); /* Suporte para navegadores baseados em WebKit */
+        }
+
+        /* Um overlay escuro sutil para garantir legibilidade sobre o fundo desfocado */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); /* Sutilmente escurecido */
+            z-index: -1;
+        }
+
+        /* Card de Login/Cadastro */
+        .login-card {
+            background-color: var(--color-card-bg); /* Semi-transparente para ver o fundo desfocado */
+            padding: 40px;
+            border-radius: 12px;
+            /* Sombra mais forte para destacar */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); 
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--color-primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        /* Estilo dos Inputs */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-sizing: border-box; 
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus {
+            border-color: var(--color-primary);
+            /* Sombra do foco no tom verde */
+            box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.4); 
+            outline: none;
+        }
+
+        /* Estilo do Botão Principal (Entrar) */
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #27794f; /* Um verde um pouco mais escuro no hover */
+        }
+        
+        button:active {
+            transform: scale(0.99);
+        }
+
+        /* Estilo dos Links Auxiliares */
+        .links-group {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        /* Responsividade (Ajuste para telas menores) */
+        @media (max-width: 500px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }

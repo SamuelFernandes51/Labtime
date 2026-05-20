@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Conta</title>
+</head>
+<body>
+
+    <h1>Criar Conta</h1>
+
+    <input id="nome" type="text" placeholder="Nome"><br><br>
+    <input id="email" type="email" placeholder="Email"><br><br>
+    <input id="senha" type="password" placeholder="Senha"><br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br><br>
+    <a href="login.html">Já tem conta? Entrar</a>
+    <a href="index.html">Voltar a página inicial</a>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar</title>
+</head>
+<body>
+
+<h1>Entrar</h1>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+<input id="senha" type="password" placeholder="Senha"><br><br>
+
+<button onclick="login()">Entrar</button>
+
+<a href="cadastro.html">Se cadastrar</a>
+<a href="index.html">Voltar a página inicial</a>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>

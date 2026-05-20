@@ -1,0 +1,109 @@
+/* Variáveis de Cores (Tema Verde LabTime) */
+        :root {
+            --color-primary: #38a169; /* Verde Principal (Botões) */
+            --color-secondary: #4a5568; /* Cinza escuro (Texto/Título) */
+            --color-background: #f0f4f7; /* Fundo levemente acinzentado */
+            --color-card-bg: white; /* Fundo do Card */
+            --color-link: #3182ce; /* Azul para links */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-background);
+            /* Centraliza o conteúdo principal */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url(imgs/fundo.jpg);  /* Nome do arquivo da imagem */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        /* Card Centralizado do Formulário */
+        .auth-card {
+            background: var(--color-card-bg);
+            width: 400px;
+            max-width: 95%; 
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--color-secondary);
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Estilo para Inputs */
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box; 
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: var(--color-primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.2);
+        }
+
+        /* Estilo para o Botão Cadastrar */
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            color: white;
+            background: var(--color-primary);
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.1s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: #27794f; 
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        
+        /* Estilo para Links de Navegação */
+        .nav-links {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            color: var(--color-link);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2c5282; /* Azul mais escuro no hover */
+            text-decoration: underline;
+        }

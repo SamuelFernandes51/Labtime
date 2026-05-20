@@ -1,45 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Início</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTime - Agendamento de Laboratórios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Substituindo a imagem placeholder pela sua URL local -->
+    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+    <header>
+        <h1>LabTime</h1>
+        <div class="header-links">
+            <a href="./login.html" class="btn-login">Fazer Login</a>
+            <a href="./cadastro.html">Cadastre-se</a>
+        </div>
+    </header>
 
-<h1>Sistema de Agendamento</h1>
+    <main>
+        <!-- Container principal que alinha a imagem e o texto lado a lado (Flexbox) -->
+        <div class="hero-content">
+            
+            <!-- 1. Área da Imagem - Usando a classe imglab para alinhamento à esquerda -->
+            <div class="hero-image-area imglab">
+                <!-- Sua div imglab e sua imagem -->
+                <img src="imgs/labtime.jpg" 
+                     alt="logolabtime" 
+                     width="300" 
+                     height="300"
+                     onerror="this.onerror=null;this.src='https://placehold.co/300x300/00cb2c/ffffff?text=LABTIME+LOGO';">
+            </div>
 
-<div id="acoes"></div>
+            <!-- 2. Área do Texto e Botões -->
+            <section class="hero-text-area">
+                <h2>Sistema de Agendamento de Laboratórios</h2>
+                <p>Gerencie a utilização dos laboratórios de informática, ciências e multimídia com eficiência e transparência. Permitindo que professores agilizem os processos de agendamento e possuam uma logística atual para as aulas.</p>
+                
+                <!-- Div que o JavaScript usa para mostrar Entrar/Agendamento -->
+                <div id="acoes">
+                    <button><a href="cadastro.html">Comece agora!</a></button>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<script>
-    function atualizarBotoes() {
-        const token = localStorage.getItem("token");
-        const div = document.getElementById("acoes");
+    <footer>
+        &copy; 2025 LabTime - Tecnologia para Educação
+    </footer>
 
-        if (!token) {
-            // Usuário NÃO está logado
-            div.innerHTML = `
-                <button onclick="window.location.href='login.html'">Entrar</button>
-                <button onclick="window.location.href='cadastro.html'">Cadastrar</button>
-            `;
-        } else {
-            // Usuário ESTÁ logado
-            div.innerHTML = `
-                <button onclick="window.location.href='agendamento.html'">Agendamento</button>
-                <button onclick="logout()">Sair</button>
-            `;
-        }
-    }
-
-    function logout() {
-        localStorage.removeItem("token");
-        window.location.href = "login.html";
-    }
-
-    atualizarBotoes();
-</script>
-
-
-
-
+    <script type="module" src="./js/auth.js"></script>
+    
 </body>
 </html>

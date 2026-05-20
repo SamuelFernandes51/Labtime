@@ -18,8 +18,7 @@ const verificarToken = (req, res, next) => {
         return res.status(401).json({ erro: "Acesso negado. Token não fornecido." });
     }
 
-
-    
+    // O cabeçalho vem como "Bearer <token>"
     const token = authHeader.split(' ')[1];
 
     if (!token) {
@@ -27,16 +26,16 @@ const verificarToken = (req, res, next) => {
     }
 
     try {
-
+        // 2. Verifica e decodifica o token
         const decoded = jwt.verify(token, JWT_SECRET);
         
-
-        
+        // 3. O payload do token decodificado contém o ID do professor (ou 'sub', dependendo de como você o nomeou)
+        // ** Assumimos que o ID está no campo 'id' do payload **
         req.professorId = decoded.id; 
 
-        next(); r
+        next(); // Se tudo OK, continua para o controlador
     } catch (err) {
-       
+        // Trata tokens inválidos (expirados, adulterados, chave secreta incorreta)
         console.error("Erro na verificação do token:", err.message);
         return res.status(401).json({ erro: "Token inválido ou expirado." });
     }

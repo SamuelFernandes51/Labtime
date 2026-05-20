@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "http://10.117.220.204:3000"; // <--- ATUALIZADO COM O PROTOCOLO E IP V4
 
 // =======================================================
 // 📌 FUNÇÃO DECODE TOKEN (DEFINIÇÃO)
@@ -62,6 +62,7 @@ async function carregarEspacos() {
         const opt = document.createElement("option");
         opt.value = e.id;
         opt.textContent = e.nome;
+        opt.title = e.descricao; // Adiciona descrição como dica de ferramenta
         select.appendChild(opt);
     });
 }
@@ -131,7 +132,7 @@ async function deletarAgendamento(agendamentoId) {
         return;
     }
 
-    // Usamos prompt() em vez de confirm() para evitar o bloqueio no iframe.
+    // Usamos prompt() para evitar bloqueio no iframe, conforme sua implementação anterior.
     const confirmacao = prompt(`Tem certeza que deseja excluir o agendamento ID ${agendamentoId}? Digite 'SIM' (em maiúsculas) para confirmar.`);
     if (confirmacao !== "SIM") {
         alert("Ação de exclusão cancelada.");
@@ -186,19 +187,19 @@ async function deletarAgendamento(agendamentoId) {
 }
 
 // =======================================================
-// 📌 FUNÇÃO LISTAR AGENDAMENTOS (COM NOVO DEBUG DE OBJETO)
+// 📌 FUNÇÃO LISTAR AGENDAMENTOS (AJUSTADA PARA 6 COLUNAS)
 // =======================================================
 async function listarAgendamentos() {
     const tabela = document.getElementById("lista");
     if (!tabela) return;
     
-    tabela.innerHTML = `<tr><td colspan="6" style="text-align: center;">Carregando agendamentos...</td></tr>`;
+    // COLSPAN AJUSTADO PARA 6 (o número de colunas no HTML)
+    tabela.innerHTML = `<tr><td colspan="6" class="loading-message">Carregando agendamentos...</td></tr>`;
 
     // Obtém o token para determinar se o botão de exclusão deve ser exibido.
     const token = localStorage.getItem("token");
     
-    // CORREÇÃO: Verifica se o token existe antes de tentar decodificar ou listar.
-    // Se não tiver token, força o logout para garantir uma sessão válida.
+    // Verifica se o token existe antes de tentar decodificar ou listar.
     if (!token) {
         alert("Sua sessão expirou. Faça login novamente para ver os agendamentos.");
         logout();
@@ -226,7 +227,8 @@ async function listarAgendamentos() {
         });
         
         if (!response.ok) {
-            tabela.innerHTML = `<tr><td colspan="6" style="text-align: center; color: red;">Erro ao carregar dados: ${response.status} - ${response.statusText}</td></tr>`;
+             // COLSPAN AJUSTADO PARA 6
+            tabela.innerHTML = `<tr><td colspan="6" class="error-message">Erro ao carregar dados: ${response.status} - ${response.statusText}</td></tr>`;
             console.error(`Erro ao carregar agendamentos: ${response.statusText}`);
             return;
         }
@@ -236,48 +238,44 @@ async function listarAgendamentos() {
         tabela.innerHTML = "";
 
         if (dados.length === 0) {
-            tabela.innerHTML = `<tr><td colspan="6" style="text-align: center;">Nenhum agendamento encontrado.</td></tr>`;
+            // COLSPAN AJUSTADO PARA 6
+            tabela.innerHTML = `<tr><td colspan="6" class="info-message">Nenhum agendamento encontrado.</td></tr>`;
             return;
         }
 
         dados.forEach(a => {
             
-            // 🐛 NOVO DEBUG LOG: Imprime o objeto agendamento completo
-            console.log("Objeto Agendamento da API:", a);
-            
             // Tenta encontrar o ID do professor em diferentes locais do objeto
             const agendamentoProfessorId = a.professor_id || (a.professor && a.professor.id ? a.professor.id : null);
 
-            // COMPARAÇÃO FORÇADA: Converte ambos os IDs para string antes de comparar (String() === String())
+            // COMPARAÇÃO FORÇADA
             const isOwner = currentUserId !== null && 
-                            agendamentoProfessorId !== null &&
-                            String(agendamentoProfessorId) === String(currentUserId);
+                                agendamentoProfessorId !== null &&
+                                String(agendamentoProfessorId) === String(currentUserId);
             
-            // 🐛 DEBUG LOG FINAL: Verifique esta saída no console do seu navegador!
-            console.log(`Agendamento ID ${a.id}: Professor Logado ID: ${currentUserId} | ID do Agendamento: ${agendamentoProfessorId} | É dono: ${isOwner}`);
 
-
-            // Usa a classe CSS pura 'btn-delete' definida no agendamentos.html
+            // Usa a classe CSS pura 'btn-delete'
             const actionButton = isOwner
                 ? `<button class="btn-delete" onclick="deletarAgendamento(${a.id})">Excluir</button>`
-                : `<span>-</span>`;
+                : `<span class="placeholder-action">-</span>`;
 
-            
+            // INCLUSÃO DOS ATRIBUTOS data-label PARA RESPONSIVIDADE E EXIBIÇÃO APENAS DAS 6 COLUNAS
             tabela.innerHTML += `
                 <tr>
-                    <td>${a.id}</td>
-                    <td>${a.professor || 'Desconhecido'}</td>
-                    <td>${a.laboratorio || 'N/A'}</td>
-                    <td>${a.data || 'N/A'}</td>
-                    <td>${a.numero_aula || 'N/A'}</td>
-                    <td>${actionButton}</td>
+                    <td data-label="ID">${a.id}</td>
+                    <td data-label="Professor">${a.professor || 'Desconhecido'}</td>
+                    <td data-label="Laboratório">${a.laboratorio || 'N/A'}</td>
+                    <td data-label="Data">${a.data || 'N/A'}</td>
+                    <td data-label="Aula">${a.numero_aula || 'N/A'}</td>
+                    <td data-label="Ações">${actionButton}</td>
                 </tr>
             `;
         });
         
     } catch (error) {
         console.error("Erro na comunicação com a API (listarAgendamentos):", error);
-        tabela.innerHTML = `<tr><td colspan="6" style="text-align: center; color: red;">Não foi possível comunicar com a API. Verifique o console.</td></tr>`;
+        // COLSPAN AJUSTADO PARA 6
+        tabela.innerHTML = `<tr><td colspan="6" class="error-message">Não foi possível comunicar com a API. Verifique o console.</td></tr>`;
     }
 }
 

@@ -1,0 +1,92 @@
+/* Variáveis de Cores (Tema Aluno Online / LabTime Verde) */
+        :root {
+            --color-primary: #38a169; /* Verde Principal */
+            --color-secondary: #4a5568; /* Cinza escuro para texto */
+            --color-background: #f0f4f7; /* Fundo levemente acinzentado */
+            --color-card-bg: white;
+            --color-danger: #e53e3e; /* Vermelho para Sair */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #212529;
+            background-image: url(imgs/fundo.jpg);  /* Nome do arquivo da imagem */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+        }
+
+        /* Card Centralizado */
+        .card {
+            background: var(--color-card-bg);
+            width: 450px;
+            max-width: 95%; /* Responsividade */
+            margin: auto;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Título e saudação */
+        h2 {
+            color: var(--color-secondary);
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        #nome {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        /* Estilo dos Botões de Ação */
+        button {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.1s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para os botões de ação (Agendar e Ver Agendamentos) - Verde */
+        button:not(#logout) {
+            background: var(--color-primary);
+        }
+
+        button:not(#logout):hover {
+            background: #27794f; /* Verde mais escuro */
+            transform: translateY(-2px);
+        }
+
+        /* Estilo para o botão Sair */
+        #logout {
+            background: var(--color-danger); /* Vermelho */
+            margin-top: 30px; /* Mais espaço para o Sair */
+        }
+
+        #logout:hover {
+            background: #b32c28; /* Vermelho mais escuro */
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }

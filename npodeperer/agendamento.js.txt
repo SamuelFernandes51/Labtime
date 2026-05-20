@@ -1,7 +1,3 @@
-// 🚨 ATENÇÃO: Se o IP do seu PC mudar (ex: mudar de rede Wi-Fi), você DEVE atualizar este IP!
-const API_URL = "http://10.117.220.204:3000"; 
-
-
 // ---------------- LOGIN ----------------
 async function login() {
     const email = document.getElementById("email").value;
@@ -12,8 +8,7 @@ async function login() {
         return;
     }
 
-    // CORRIGIDO: Uso da constante API_URL e protocolo HTTP
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, senha })
@@ -47,8 +42,7 @@ async function cadastrar() {
     }
 
     try {
-        // CORRIGIDO: Uso da constante API_URL e protocolo HTTP, e remoção do 't' extra
-        const resposta = await fetch(`${API_URL}/auth/register`, {
+        const resposta = await fetch("http://localhost:3000/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ nome, email, senha })

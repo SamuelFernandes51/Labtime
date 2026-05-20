@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Entrar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labtime</title>
+    <link rel="stylesheet" href="stylelog.css">
+    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">
+
 </head>
 <body>
 
-<h1>Entrar</h1>
+    <div class="login-card">
+    <h1>Entrar</h1>
 
-<input id="email" type="email" placeholder="Email"><br><br>
-<input id="senha" type="password" placeholder="Senha"><br><br>
+    <input id="email" type="email" placeholder="Email"><br>
+    <input id="senha" type="password" placeholder="Senha"><br>
 
-<button onclick="login()">Entrar</button>
+    <button onclick="login()">Entrar</button>
 
-<a href="cadastro.html">Se cadastrar</a>
-<a href="index.html">Voltar a página inicial</a>
+    <div class="links-group">
+        <a href="cadastro.html">Se cadastrar</a>
+        <a href="index.html">Voltar a página inicial</a>
+    </div>
+    </div>
 
-<script src="js/auth.js"></script>
+    <!-- O script JS deve ser carregado. Assumi que está em public/js/auth.js -->
+    <script src="js/auth.js"></script>
 
+    
 </body>
 </html>

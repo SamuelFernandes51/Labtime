@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <title>Home do Professor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="profhome.css">
-    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            padding: 40px;
+            text-align: center;
+        }
 
+        .card {
+            background: white;
+            width: 400px;
+            max-width: 90%; /* Responsividade básica */
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #0003;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease; /* Adiciona transição */
+        }
+
+        button:hover {
+            background: #005ec2;
+        }
+
+        #logout {
+            background: #d9534f;
+        }
+
+        #logout:hover {
+            background: #b32c28;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,8 +66,7 @@
         localStorage.removeItem("token");
         localStorage.removeItem("nome");
 
-        // Substituído alert() por console.log e redirecionamento, conforme as diretrizes
-        console.log("Logout realizado!");
+        alert("Logout realizado!");
         // Uso explícito de window.location.href para redirecionar
         window.location.href = "login.html";
     }
@@ -41,7 +79,7 @@
 
     if (!token) {
         // Se não houver token, redireciona
-        console.error("Você precisa fazer login primeiro!");
+        alert("Você precisa fazer login primeiro!");
         // Uso explícito de window.location.href para redirecionar
         window.location.href = "login.html";
     }
@@ -53,12 +91,7 @@
     }
 
     // 3. Mostrar nome do professor logado
-    const nomeElement = document.getElementById("nome");
-    if (nomeElement) {
-        nomeElement.innerText = nome;
-    }
-    
-    // EXCLUÍDO: O código original tinha um alert() aqui que foi removido
+    document.getElementById("nome").innerText = nome;
 </script>
 
 </body>
