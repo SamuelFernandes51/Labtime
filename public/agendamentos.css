@@ -2,8 +2,8 @@
 /* --- 1. VARIÁVEIS DE COR (TEMA VERDE) --- */
 /* ------------------------------------- */
 :root {
-    --color-primary: #00801e; /* Novo Verde Principal (mais escuro e forte) */
-    --color-secondary: #00cb2c; /* Verde de Destaque/Hover */
+    --color-primary: #1b8432;  /* Novo Verde Principal (mais escuro e forte) */
+   
     --color-dark: #2c3e50; /* Azul escuro/quase preto para títulos e textos */
     --color-background: #f4f6f9; /* Fundo muito claro, quase branco, para suavidade */
     --color-table-header: var(--color-dark); /* Cabeçalho da Tabela - Azul Escuro */
@@ -23,6 +23,7 @@ body {
     align-items: center;
     min-height: 100vh;
     color: var(--color-text-body);
+        
 }
 
 h1 {
@@ -69,14 +70,14 @@ th, td {
 }
 
 th {
-    background-color: var(--color-table-header);
+    background-color: #1b8432;
     color: white;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
     /* Aplicando o gradiente com as cores primárias */
-    background-image: linear-gradient(to right, var(--color-primary), var(--color-dark));
+    
 }
 
 th:first-child { border-top-left-radius: 12px; }
@@ -130,7 +131,7 @@ button:hover {
 }
 
 .btn-voltar:hover {
-    background-color: var(--color-secondary); /* Verde secundário no hover */
+    background-color: #09521a; /* Verde secundário no hover */
     transform: translateY(-1px);
 }
 

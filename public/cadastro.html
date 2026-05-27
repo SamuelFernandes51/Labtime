@@ -7,7 +7,7 @@
     <!-- Fonte moderna para o tema -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylecad.css">
-    <link rel="shortcut icon" href="imgs/Labtime logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="imgs/lab2.jpeg" type="image/x-icon">
 
 </head>
 <body>
@@ -16,15 +16,15 @@
     <h1>Criar Conta</h1>
 
     <!-- Removi as tags <br><br> e usei CSS/divs para espaçamento -->
-    <input id="nome" type="text" placeholder="Nome">
-    <input id="email" type="email" placeholder="Email">
-    <input id="senha" type="password" placeholder="Senha">
+    <input id="nome" type="text" placeholder="Nome" autocomplete="off" required>
+    <input id="email" type="email" placeholder="Email" autocomplete="off" required>
+    <input id="senha" type="password" placeholder="Senha" autocomplete="off" required>
 
     <button onclick="cadastrar()" class="btn-primary">Cadastrar</button>
 
     <div class="nav-links">
         <!-- Mantido o HTML original para os links -->
-        <a href="login.html">Já tem conta? Entrar</a>
+        <p>Já tem conta? <a href="login.html">Entrar</a></p>
         <a href="index.html">Voltar a página inicial</a>
     </div>
 </div>

@@ -1,6 +1,6 @@
 /* Variáveis de Cores (Tema Aluno Online / LabTime Verde) */
         :root {
-            --color-primary: #38a169; /* Verde Principal */
+            --color-primary: #1b8432; /* Verde Principal */
             --color-secondary: #4a5568; /* Cinza escuro para texto */
             --color-background: #f0f4f7; /* Fundo levemente acinzentado */
             --color-card-bg: white;
@@ -17,12 +17,13 @@
             margin: 0;
             padding: 20px;
             color: #212529;
-            background-image: url(imgs/fundo.jpg);  /* Nome do arquivo da imagem */
+            background-image: url(imgs/lab.jpeg);  /* Nome do arquivo da imagem */
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
+            overflow: hidden;
 
         }
 
@@ -36,6 +37,7 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             text-align: center;
+            
         }
 
         /* Título e saudação */

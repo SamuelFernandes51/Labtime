@@ -1,6 +1,6 @@
     /* Variáveis de Cores (Tema Verde LabTime) */
         :root {
-            --color-primary: #38a169; /* Verde Principal */
+            --color-primary: #1b8432; /* Verde Principal */
             --color-secondary: #4a5568; /* Cinza escuro para texto */
             --color-background-overlay: rgba(248, 249, 250, 0.7); /* Overlay para o fundo */
             --color-card-bg: rgba(255, 255, 255, 0.95); /* Fundo do card semi-transparente */
@@ -16,9 +16,10 @@
             align-items: center;
             min-height: 100vh;
             color: #212529;
+            overflow: hidden;
             
             /* Fundo com a Imagem e Efeito Desfoque */
-            background-image: url(imgs/fundo.jpg);  /* Nome do arquivo da imagem */
+            background-image: url(imgs/lab.jpeg);  /* Nome do arquivo da imagem */
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
@@ -36,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.2); /* Sutilmente escurecido */
+           
             z-index: -1;
         }
 
@@ -108,6 +109,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            
         }
 
         a {
@@ -115,11 +117,12 @@
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.3s;
+            color: #1b8432;
         }
 
         a:hover {
-            color: var(--color-primary);
-            text-decoration: underline;
+            color: #09521a;;
+            
         }
 
         /* Responsividade (Ajuste para telas menores) */

@@ -1,10 +1,10 @@
             :root {
-            --color-primary: #00cb2c; /* verde forte */
+            --color-primary: #1b8432; /* verde forte */
             --color-accent: #28a745; /* Verde para destaque (Cadastro) */
             --color-dark: #343a40;
-            --color-light: #f8f9fa; /* Fundo mais claro */
+            --color-light: #f8f9fa84; /* Fundo mais claro */
             --color-text: #212529;
-            --color-login-bg: #00801e;
+            --color-login-bg: #09521a;
         }
 
         a {
@@ -38,12 +38,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
         }
         
         header h1 {
             font-size: 1.8rem;
             font-weight: 700;
             margin: 0;
+            margin-left: 20px;
         }
         
         /* Links no Header (Botões) */
@@ -71,6 +73,7 @@
         .header-links a.btn-login {
             background-color: var(--color-login-bg);
             color: white;
+            padding: 10px 20px;
         }
 
         .header-links a.btn-login:hover {
@@ -82,12 +85,21 @@
             background-color: transparent;
             color: white;
             border: 2px solid white;
+            padding: 9px 15px;
         }
 
         .header-links a:not(.btn-login):hover {
             background-color: white;
             color: var(--color-primary);
             transform: translateY(-1px);
+        }
+
+        .cad{
+            margin-right: 20px;
+        }
+
+        footer{
+            margin-bottom: 15px;
         }
 
 
@@ -116,6 +128,7 @@
         .imglab {
             display: flex;
             justify-content: flex-start; /* Alinha o conteúdo (imagem) à esquerda */
+            margin-left: 20px;
         }
         
         /* Área da Imagem (25% da largura) */
@@ -156,12 +169,14 @@
             flex-wrap: wrap; 
             justify-content: flex-start; /* Alinha os botões à esquerda */
             gap: 15px;
-            margin-top: 20px; 
+            margin-top: 20px;
+        
+
         }
         
         /* Estilo dos botões */
         #acoes button {
-            padding: 1rem 2rem;
+            padding: 1rem 10px;
             font-size: 1rem;
             font-weight: 600;
             border: none;
@@ -171,6 +186,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: var(--color-primary);
             color: white;
+            
         }
 
         #acoes button:hover {
@@ -187,7 +203,7 @@
         }
         
         /* Media Query para responsividade em telas menores */
-        @media (max-width: 850px) {
+        @media (max-width: 600px) {
             /* Em telas menores, o layout se torna coluna (Imagem em cima, Texto embaixo) */
             .hero-content {
                 flex-direction: column;
@@ -204,6 +220,7 @@
             /* Garante que a imagem seja centralizada em telas pequenas */
             .imglab {
                 justify-content: center;
+                
             }
 
             .hero-text-area {
@@ -223,10 +240,7 @@
                 flex-direction: column;
             }
             #acoes button {
-                width: 100%;
+                padding: 1rem 10px;
             }
         }
-
-    h1{
-        border-left: 50px;
-    }
+    
